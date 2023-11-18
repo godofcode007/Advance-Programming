@@ -1,5 +1,7 @@
 package com.example.terminal_2;
 
+import java.util.ArrayList;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,22 +26,35 @@ public class Terminal2Application {
 	}
 
 	private void runApplication(TerminalService terSer) {
-		Bus b1 = new Bus("Mercedes");
-		Bus b2 = new Bus("BMW");
-
-		Passenger p1 = new Passenger("John", "Doe");
-		Passenger p2 = new Passenger("Jane", "dog");
-		Passenger p3= new Passenger("June", "fog");
-
-		b1.addPassenger(p1);
-		b1.addPassenger(p2);
-		b2.addPassenger(p3);
-
+		
+		Bus b1 = new Bus();
+		b1.setModel("Benz");
+		b1.setPassengers(new ArrayList<Passenger>());
 		terSer.saveBus(b1);
+
+		Bus b2 = new Bus();
+		b2.setModel("BMW");
+		b2.setPassengers(new ArrayList<Passenger>());
 		terSer.saveBus(b2);
 
+		Passenger p1 = new Passenger();
+		p1.setName("Mohammad");
+		p1.setSurname("Rauf");
+		p1.setBus(b1);
 
-		
+		Passenger p2 = new Passenger();
+		p2.setName("Yousef");
+		p2.setSurname("AboIsmail");
+		p1.setBus(b2);
+
+		terSer.savePassenger(p1);
+
+		System.out.println("Buses: ");
+		terSer.getBuses().forEach(System.out::println);
+
+		System.out.println("Passengers: ");
+		terSer.getPassengers().forEach(System.out::println);
+
 	}
 
 }

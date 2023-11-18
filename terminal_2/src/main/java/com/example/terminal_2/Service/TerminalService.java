@@ -24,6 +24,10 @@ public class TerminalService {
         busRep.save(b);
     }
 
+    public void savePassenger(Passenger p, Long busId) {
+        p.setBus(busRep.findById(busId).get());
+    }
+
     public void savePassenger(Passenger p) {
         passRep.save(p);
     }
@@ -32,11 +36,16 @@ public class TerminalService {
         return busRep.findAll();
     }
 
-    public Optional<Bus> getBusById(Long id) {
-        return busRep.findById(id);
-    }
-
     public List<Passenger> getPassengers() {
         return passRep.findAll();
     }
+
+    public Optional<Bus> getBuses(Long busId) {
+        return busRep.findById(busId);
+    }
+
+    public List<Passenger> getPassengers(Long busId) {
+        return passRep.findByBusId(busId);
+    }
+
 }

@@ -55,4 +55,12 @@ public class Passenger {
         this.surname = surname;
     }
 
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
 }
