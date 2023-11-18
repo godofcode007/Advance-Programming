@@ -26,7 +26,7 @@ public class Terminal2Application {
 	}
 
 	private void runApplication(TerminalService terSer) {
-		
+
 		Bus b1 = new Bus();
 		b1.setModel("Benz");
 		b1.setPassengers(new ArrayList<Passenger>());
@@ -48,6 +48,7 @@ public class Terminal2Application {
 		p1.setBus(b2);
 
 		terSer.savePassenger(p1);
+		terSer.savePassenger(p2);
 
 		System.out.println("Buses: ");
 		terSer.getBuses().forEach(System.out::println);
