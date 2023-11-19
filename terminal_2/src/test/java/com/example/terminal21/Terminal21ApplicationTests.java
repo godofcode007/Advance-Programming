@@ -1,10 +1,10 @@
-package com.example.terminal_2;
+package com.example.terminal21;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Terminal2ApplicationTests {
+class Terminal21ApplicationTests {
 
 	@Test
 	void contextLoads() {
