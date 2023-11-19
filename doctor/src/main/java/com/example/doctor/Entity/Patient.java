@@ -20,10 +20,10 @@ public class Patient {
     Doctor doctor;
 
     // public Patient(String name, String surname, String disease, Doctor doctor) {
-    //     this.name = name;
-    //     this.surname = surname;
-    //     this.disease = disease;
-    //     this.doctor = doctor;
+    // this.name = name;
+    // this.surname = surname;
+    // this.disease = disease;
+    // this.doctor = doctor;
     // }
 
     public Long getPatient_id() {

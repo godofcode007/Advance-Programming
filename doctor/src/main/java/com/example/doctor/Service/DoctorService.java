@@ -1,6 +1,7 @@
 package com.example.doctor.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,12 @@ public class DoctorService {
         docRep.save(d);
     }
 
-    public void findById(Long id) {
-        docRep.findById(id);
+    public Optional<Doctor> findById(Long id) {
+        return docRep.findById(id);
     }
 
-    public void findAll() {
-        docRep.findAll();
+    public List<Doctor> findAll() {
+        return docRep.findAll();
     }
 
 }
