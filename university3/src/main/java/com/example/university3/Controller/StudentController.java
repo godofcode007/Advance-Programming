@@ -44,12 +44,8 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> addStudent(@RequestBody Student s){
+    public ResponseEntity<Student> addStudent(@RequestBody Student s) {
         return ResponseEntity.ok(stuRep.save(s));
     }
-    // @PostMapping
-    // public Student addStudent(Student student) {
-    // return stuRep.save(student);
-    // }
 
 }
