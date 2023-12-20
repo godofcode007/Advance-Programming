@@ -28,21 +28,25 @@ public class StudentController {
         return stuRep.findAll();
     }
 
+    // display hello world on browser for a testing purpose
     @GetMapping("/hello")
     public String hello() {
         return "Hello World";
     }
 
+    // display student according to course id
     @GetMapping("{id}")
     public Optional<Student> getStudent(@PathVariable Long id) {
         return stuRep.findById(id);
     }
 
+    // display the course according to student id
     @GetMapping("course/{id}")
     public List<Student> getStudentsByCourse(@PathVariable Long id) {
         return stuRep.findByCoursesId(id);
     }
 
+    // add student to database
     @PostMapping
     public ResponseEntity<Student> addStudent(@RequestBody Student s) {
         return ResponseEntity.ok(stuRep.save(s));
