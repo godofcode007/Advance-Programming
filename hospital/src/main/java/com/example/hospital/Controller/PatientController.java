@@ -1,8 +1,6 @@
 package com.example.hospital.Controller;
 
-import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.hospital.Entity.Appointment;
 import com.example.hospital.Entity.Doctor;
 import com.example.hospital.Entity.Patient;
 import com.example.hospital.Repository.AppointmentRepository;
-import com.example.hospital.Repository.DoctorRepository;
 import com.example.hospital.Repository.PatientRepository;
 
 @RestController
