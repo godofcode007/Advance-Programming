@@ -1,7 +1,5 @@
 package com.example.hospital.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,12 +24,12 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
-    @JsonIgnore
+    // @JsonIgnore
     Patient patient;
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
-    @JsonIgnore
+    // @JsonIgnore
     Doctor doctor;
 
     public Long getId() {
@@ -84,8 +82,8 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Appointment = " +
-                "Id : " + id + " | " +
+        return "Appointment : " +
+                "ID : " + id + " | " +
                 "AppointmentDate : " + appointmentDate + " | " +
                 "AppointmentTime : " + appointmentTime + " | " +
                 "Details : " + details;

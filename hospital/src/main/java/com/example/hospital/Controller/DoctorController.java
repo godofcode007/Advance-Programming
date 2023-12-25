@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.hospital.Entity.Doctor;
 
+import com.example.hospital.Entity.Appointment;
+import com.example.hospital.Entity.Doctor;
+import com.example.hospital.Repository.AppointmentRepository;
 import com.example.hospital.Repository.DoctorRepository;
 
 @RestController
@@ -18,6 +20,9 @@ public class DoctorController {
 
     @Autowired
     DoctorRepository docRep;
+
+    @Autowired
+    AppointmentRepository appRep;
 
     // @GetMapping
     // public List<Doctor> getAll() {
@@ -43,7 +48,12 @@ public class DoctorController {
         Optional<Doctor> optionalDoctor = docRep.findById(id);
         if (optionalDoctor.isPresent()) {
             Doctor d = optionalDoctor.get();
-            result += "Name : " + d.getName() + " | " + "Specialty: " + d.getSpecialty() + "<br>";
+            result += "Name : " + d.getName() + " | " + "Specialty: " + d.getSpecialty() + " | " + d.getAppointments();
+
+            for (Appointment a : d.getAppointments()) {
+                result += "| ID: " + a.getId() + " " + " ; Patient: " + a.getPatient().getName() + " ";
+            }
+            result += "<br>";
         }
         return result;
     }
@@ -80,7 +90,7 @@ public class DoctorController {
 
         if (d != null) {
             d.setName(d1.getName());
-            d.setSpecialty(d1.getSpecialty());
+            d.setSpeciality(d1.getSpecialty());
 
             docRep.save(d);
         }

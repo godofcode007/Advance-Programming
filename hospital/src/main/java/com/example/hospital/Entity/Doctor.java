@@ -48,8 +48,8 @@ public class Doctor {
         return speciality;
     }
 
-    public void setSpecialty(String specialty) {
-        this.speciality = specialty;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public List<Appointment> getAppointments() {
@@ -59,5 +59,11 @@ public class Doctor {
     public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
+
+    public void removeAppointment(Appointment appointment) {
+        appointments.remove(appointment);
+        appointment.setDoctor(null);
+    }
+
 
 }

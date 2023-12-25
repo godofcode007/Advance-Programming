@@ -96,19 +96,24 @@ public class PatientController {
         return p;
     }
 
-    // Delete a patient
-    // Delete a patient
+    // Delete a patient and all his/her appointments using cascading
     @DeleteMapping("/delete/{id}")
-    public String deletePatient(@PathVariable Long id) {
-        Patient p = patRep.findById(id).orElse(null);
-
-        if (p != null) {
-            for (Appointment a : p.getAppointments()) {
-                appRep.delete(a);
-            }
-            patRep.delete(p);
-        }
-
-        return "Patient deleted";
+    public void deletePatient(@PathVariable Long id) {
+        patRep.deleteById(id);
     }
+
+    // Delete a patient and all his/her appointments without using cascading
+
+    // public String deletePatient(@PathVariable Long id) {
+    // Patient p = patRep.findById(id).orElse(null);
+
+    // if (p != null) {
+    // for (Appointment a : p.getAppointments()) {
+    // appRep.delete(a);
+    // }
+    // patRep.delete(p);
+    // }
+
+    // return "Patient deleted";
+    // }
 }
