@@ -1,13 +1,10 @@
 package com.example.hospital.Entity;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -75,13 +72,5 @@ public class Patient {
         appointments.remove(appointment);
         appointment.setPatient(null);
     }
-
-    // public String getDoctors() {
-    // String result = "";
-    // for (Appointment a : appointments) {
-    // result += a.getDoctor().getName() + " | ";
-    // }
-    // return result;
-    // }
 
 }

@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.hospital.Entity.Appointment;
 import com.example.hospital.Repository.AppointmentRepository;
 import com.example.hospital.Repository.DoctorRepository;
-import com.example.hospital.Repository.PatientRepository;
-import com.example.hospital.Service.AppointmentService;
 
 @RestController
 @RequestMapping("appointment")
@@ -26,12 +23,6 @@ public class AppointmentController {
 
     @Autowired
     DoctorRepository docRep;
-
-    @Autowired
-    PatientRepository patRep;
-
-    @Autowired
-    AppointmentService appSer;
 
     @GetMapping
 
@@ -68,26 +59,6 @@ public class AppointmentController {
     public Appointment addAppointment(@RequestBody Appointment appointment) {
         return appRep.save(appointment);
     }
-
-    // public Appointment addAppointment(@RequestBody Map<String, String> body) {
-    // String appointmentDate = body.get("appointmentDate");
-    // String appointmentTime = body.get("appointmentTime");
-    // String details = body.get("details");
-    // Long patientId = Long.parseLong(body.get("patientId"));
-    // Long doctorId = Long.parseLong(body.get("doctorId"));
-
-    // Patient patient = patRep.findById(patientId).get();
-    // Doctor doctor = docRep.findById(doctorId).get();
-
-    // Appointment appointment = new Appointment();
-    // appointment.setAppointmentDate(appointmentDate);
-    // appointment.setAppointmentTime(appointmentTime);
-    // appointment.setDetails(details);
-    // appointment.setPatient(patient);
-    // appointment.setDoctor(doctor);
-
-    // return appRep.save(appointment);
-    // }
 
     // Update a appointment information
     @PostMapping("/update/{id}")

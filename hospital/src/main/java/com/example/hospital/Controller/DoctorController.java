@@ -24,11 +24,6 @@ public class DoctorController {
     @Autowired
     AppointmentRepository appRep;
 
-    // @GetMapping
-    // public List<Doctor> getAll() {
-    // return docRep.findAll();
-    // }
-
     @GetMapping
     public String getAllNames() {
         String result = "";
@@ -57,24 +52,6 @@ public class DoctorController {
         }
         return result;
     }
-
-    // doctor with appointments
-    // public Doctor getDoctorById(@PathVariable Long id) {
-    // return docRep.findById(id).orElse(null);
-    // }
-
-    // public String getPatientById(@PathVariable Long id) {
-    // String result = "";
-
-    // Optional<Patient> optionalPatient = patRep.findById(id);
-    // if (optionalPatient.isPresent()) {
-    // Patient p = optionalPatient.get();
-    // result += "Name : " + p.getName() + " | " + "Gender: " + p.getGender() + " |
-    // " + "Date of Birth: "
-    // + p.getDob() + "<br>";
-    // }
-    // return result;
-    // }
 
     // Create a new doctor
     @PostMapping("/add")

@@ -80,7 +80,8 @@ public class Appointment {
         this.doctor = doctor;
     }
 
-    @Override
+    @Override // Override the toString() method to return a custom string showing the
+              // appointment details instead of the object's hashcode value
     public String toString() {
         return "Appointment : " +
                 "ID : " + id + " | " +

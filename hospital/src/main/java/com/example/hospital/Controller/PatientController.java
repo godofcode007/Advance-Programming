@@ -29,10 +29,6 @@ public class PatientController {
 
     // Get all patients name only but without appointments and doctors information
     @GetMapping
-    // public ResponseEntity<Iterable<Patient>> getAll() {
-    // return ResponseEntity.ok(patRep.findAll());
-    // }
-
     public String getAll() {
         String result = "";
 
@@ -50,12 +46,6 @@ public class PatientController {
 
         return result;
     }
-
-    // // Get a single patient by id
-    // @GetMapping("/{id}")
-    // public Patient getPatientById(@PathVariable Long id) {
-    // return patRep.findById(id).orElse(null);
-    // }
 
     // Get a single patient by id
     @GetMapping("/{id}")
@@ -101,19 +91,4 @@ public class PatientController {
     public void deletePatient(@PathVariable Long id) {
         patRep.deleteById(id);
     }
-
-    // Delete a patient and all his/her appointments without using cascading
-
-    // public String deletePatient(@PathVariable Long id) {
-    // Patient p = patRep.findById(id).orElse(null);
-
-    // if (p != null) {
-    // for (Appointment a : p.getAppointments()) {
-    // appRep.delete(a);
-    // }
-    // patRep.delete(p);
-    // }
-
-    // return "Patient deleted";
-    // }
 }
